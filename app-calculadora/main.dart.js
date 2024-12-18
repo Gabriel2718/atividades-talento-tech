@@ -58396,7 +58396,7 @@ s.f=B.c.i(B.vz.dv(A.acJ(A.dM($.afv().b,r),new A.A9("end of input expected"),null
 $S:0}
 A.yB.prototype={
 S(a){var s=null
-return new A.rS(B.yM,"Layout",A.a85(s,A.aaa(B.K,s,s,B.Cn),!0),!1,s)}}
+return new A.rS(B.yM,"Calculadora",A.a85(s,A.aaa(B.K,s,s,B.Cn),!0),!1,s)}}
 A.rf.prototype={
 am(){return new A.GD()}}
 A.GD.prototype={
