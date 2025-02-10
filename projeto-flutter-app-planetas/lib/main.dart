@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/telas/tela_informacoes.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'telas/tela_planeta.dart';
 import 'modelos/planeta.dart';
 import 'controles/controle_planeta.dart';
@@ -66,6 +67,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Future<void> openGitHub() async {
+    final Uri url = Uri.parse(
+        "https://github.com/Gabriel2718/atividades-talento-tech/tree/main/projeto-flutter-app-planetas/lib");
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw 'Não foi possível abrir o link: $url';
+    }
+  }
+
   final ControlePlaneta _controlePlaneta =
       ControlePlaneta(); //Classe que realiza as operações no banco de dados SQLite
 
@@ -168,9 +178,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Row(
+          children: [
+            Text(widget.title),
+            IconButton(
+              onPressed: openGitHub,
+              icon: Icon(Icons.share),
+            ),
+          ],
+        ),
         actions: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //Funcionalidade de troca de temas (claro/escuro)
               Icon(widget.temaEscuro ? Icons.nightlight : Icons.wb_sunny),
